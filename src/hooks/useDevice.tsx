@@ -1,12 +1,11 @@
 import { useState, useLayoutEffect } from 'react';
 
 const useDevice = () => {
-  const [device, setDevice] = useState<string>('');
+  const [device, setDevice] = useState<string>();
 
   const handleChange = () => {
-    const width = window.innerWidth;
+    const width: number = window.innerWidth;
     if (width < 768) setDevice('mobile');
-    else if (width >= 768 && width < 1025) setDevice('tablet');
     else setDevice('desktop');
   };
 

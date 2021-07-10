@@ -12,9 +12,21 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 10,
     // eslint-disable-next-line no-useless-computed-key
     ['@media (min-width:1024px)']: {
-      fontSize: '2.8rem',
-      height: 70,
+      fontSize: '2.4rem',
+      height: 60,
+      marginBottom: 15,
     },
+  },
+  optionStyle: {
+    fontSize: '1.5rem',
+    color: '#000000',
+    // eslint-disable-next-line no-useless-computed-key
+    ['@media (min-width:1024px)']: {
+      fontSize: '2.4rem',
+    },
+  },
+  menuPaper: {
+    maxHeight: 100,
   },
   icon: {
     fill: '#6fbd93',

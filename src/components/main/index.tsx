@@ -15,6 +15,7 @@ const Main: React.FC = () => {
   const simbol = '\xB0C';
   const { title, temp, tempChanges, precipitation, humidity, wind } = data;
   const device = useDevice();
+
   return (
     <div className='main'>
       <div className='container weather'>

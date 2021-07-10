@@ -1,23 +1,20 @@
 import Select from '@material-ui/core/Select';
 import { memo } from 'react';
+
 import useStyles from './styles';
 
-interface IProps {
-  onChange: () => void;
-  value: String;
-}
+type Props = {
+  value: string;
+  options: Array<{ label: string; value: string; id: number }>;
+  onChange: (e: React.ChangeEvent<{ value: unknown }>) => void;
+};
 
-const options = [
-  { label: 'Choose a location', value: '', id: 0 },
-  { label: 'ten', value: '10', id: 1 },
-  { label: 'Twenty', value: '20', id: 2 },
-  { label: 'Thirty', value: '30', id: 3 },
-];
+const CustomSelect: React.FC<Props> = ({ onChange, options, value }) => {
+  const { icon, optionStyle, menuPaper, selectEmpty } = useStyles();
 
-const CustomSelect: React.FC<IProps> = ({ onChange, value }) => {
-  const { selectEmpty, icon } = useStyles();
   return (
     <Select
+      variant='outlined'
       native
       value={value}
       onChange={onChange}
@@ -27,9 +24,10 @@ const CustomSelect: React.FC<IProps> = ({ onChange, value }) => {
           icon,
         },
       }}
+      MenuProps={{ classes: { paper: menuPaper } }}
     >
       {options.map(({ id, label, value }) => (
-        <option value={value} key={id}>
+        <option className={optionStyle} value={value} key={id}>
           {label}
         </option>
       ))}

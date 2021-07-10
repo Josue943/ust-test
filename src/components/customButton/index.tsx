@@ -2,11 +2,15 @@ import { memo } from 'react';
 
 import './styles.scss';
 
-interface IProps {
+type Props = {
   title: String;
   onClick?: () => void;
-}
+};
 
-const CustomButton: React.FC<IProps> = ({ title }) => <button className='btn'>{title}</button>;
+const CustomButton: React.FC<Props> = ({ title, ...rest }) => (
+  <button className='btn' {...rest}>
+    {title}
+  </button>
+);
 
 export default memo(CustomButton);
