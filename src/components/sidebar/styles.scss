@@ -1,4 +1,18 @@
+@import '../../sass/mixin';
+
 .sidebar {
   background: #373b46;
-  height: 200px;
+  padding-bottom: 40px;
+  @include desktop {
+    flex-basis: 450px;
+  }
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .form {
+    @include desktop {
+      flex: 1;
+    }
+  }
 }

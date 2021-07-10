@@ -1,11 +1,20 @@
 @import '../../sass/variables';
+@import '../../sass/mixin';
 
 .btn {
   background: $main-green;
-  text-transform: capitalize;
-  height: 55px;
-  width: 100%;
   border: none;
-  color: #ffffff;
+  color: $text-color;
+  cursor: pointer;
   font-size: 2rem;
+  height: 50px;
+  text-transform: capitalize;
+  width: 100%;
+  @include desktop {
+    height: 70px;
+    font-size: 2.8rem;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
 }
