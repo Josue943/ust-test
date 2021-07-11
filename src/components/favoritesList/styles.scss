@@ -1,0 +1,29 @@
+@import '../../sass/mixin';
+@import '../../sass/variables';
+
+.favorite-list {
+  max-width: 800px;
+  @include desktop {
+    margin-top: 10%;
+  }
+}
+
+.MuiSvgIcon-root {
+  color: $text-color;
+  font-size: 2.2rem !important;
+  @include desktop {
+    font-size: 2.8rem !important;
+  }
+}
+
+.MuiTypography-body1 {
+  font-size: 1.8rem !important;
+  @include desktop {
+    font-size: 2.3rem !important;
+  }
+}
+
+.icon-container {
+  display: flex;
+  justify-content: flex-end;
+}

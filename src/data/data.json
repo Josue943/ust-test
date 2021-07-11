@@ -1,0 +1,44 @@
+[
+  {
+    "id": 3621849,
+    "name": "San José",
+    "state": "",
+    "country": "CR"
+  },
+  {
+    "id": 6455259,
+    "name": "Paris",
+    "state": "",
+    "country": "FR"
+  },
+  {
+    "id": 5128581,
+    "name": "New York City",
+    "state": "NY",
+    "country": "US"
+  },
+  {
+    "id": 5392171,
+    "name": "San Jose",
+    "state": "CA",
+    "country": "US"
+  },
+  {
+    "id": 2643743,
+    "name": "London",
+    "state": "",
+    "country": "GB"
+  },
+  {
+    "id": 2950158,
+    "name": "Berlin",
+    "state": "",
+    "country": "DE"
+  },
+  {
+    "id": 2759794,
+    "name": "Amsterdam",
+    "state": "",
+    "country": "NL"
+  }
+]

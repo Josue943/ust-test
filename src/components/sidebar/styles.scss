@@ -3,16 +3,15 @@
 .sidebar {
   background: #373b46;
   padding-bottom: 40px;
+  @include ipad {
+    flex-basis: 300px;
+  }
   @include desktop {
     flex-basis: 450px;
   }
   .sidebar-content {
     display: flex;
     flex-direction: column;
-  }
-  .form {
-    @include desktop {
-      flex: 1;
-    }
+    justify-content: space-between;
   }
 }

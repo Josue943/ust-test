@@ -1,0 +1,58 @@
+@import '../../sass/mixin';
+@import '../../sass/variables';
+
+.weather {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 30px;
+
+  @include ipad {
+    justify-content: space-around;
+  }
+
+  .weather-temperature {
+    margin-top: 25px;
+    @include desktop {
+      margin-top: 40px;
+    }
+  }
+
+  h1 {
+    font-size: 10rem;
+    font-weight: 300;
+    line-height: 1.05;
+    @include ipad {
+      font-size: 13rem;
+    }
+    @include desktop {
+      font-size: 16rem;
+    }
+  }
+
+  .detail {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #e9e7ea;
+    @include ipad {
+      font-size: 2.6rem;
+    }
+    @include desktop {
+      font-size: 3rem;
+    }
+  }
+}
+
+.fav-icon {
+  margin-left: 5px;
+  font-size: 3rem !important;
+  cursor: pointer;
+  @include ipad {
+    font-size: 3.5rem !important;
+  }
+  @include desktop {
+    font-size: 4.5rem !important;
+  }
+}

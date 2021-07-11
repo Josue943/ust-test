@@ -5,54 +5,10 @@
   background: #1f222b;
   flex: 1;
   display: flex;
+}
 
-  .weather {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 30px;
-    @include desktop {
-      justify-content: space-around;
-    }
-  }
-
-  .title {
-    font-size: 2.8rem;
-    font-weight: 100;
-    margin-bottom: 5px;
-    @include desktop {
-      font-size: 4rem;
-      margin-bottom: 10px;
-    }
-  }
-
-  .separator {
-    border-color: $main-green;
-  }
-
-  .weather-temperature {
-    margin-top: 25px;
-    @include desktop {
-      margin-top: 40px;
-    }
-  }
-
-  h1 {
-    font-size: 10rem;
-    font-weight: 300;
-    line-height: 1.05;
-    @include desktop {
-      font-size: 16rem;
-    }
-  }
-
-  .detail {
-    font-size: 2rem;
-    font-weight: 400;
-    letter-spacing: 1px;
-    color: #e9e7ea;
-    @include desktop {
-      font-size: 3rem;
-    }
-  }
+.loading {
+  height: 60px !important;
+  width: 60px !important;
+  color: $main-green !important;
 }

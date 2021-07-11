@@ -1,7 +1,7 @@
 import Axios, { AxiosInstance } from 'axios';
 
 const axios: AxiosInstance = Axios.create({
-  baseURL: 'gg',
+  baseURL: 'http://api.openweathermap.org/data/2.5',
 });
 
 export default axios;

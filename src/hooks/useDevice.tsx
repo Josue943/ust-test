@@ -5,7 +5,7 @@ const useDevice = () => {
 
   const handleChange = () => {
     const width: number = window.innerWidth;
-    if (width < 768) setDevice('mobile');
+    if (width < 767) setDevice('mobile');
     else setDevice('desktop');
   };
 
