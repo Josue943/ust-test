@@ -38,31 +38,29 @@ const WeatherInfo: React.FC<IProps> = ({ counter, country, id, favorite, name, m
     <>
       <Fade in={true} timeout={1800}>
         <div className={`w-100 ${weatherTemp}`}>
-          <div className='container'>
-            <div className='weather'>
-              <div className='weather-header'>
-                <h2 className='title'>
-                  {`${name}, ${country}`} <Icon className='fav-icon' onClick={onClick} />
-                </h2>
-                <hr className='separator' />
-                <div className='weather-temperature'>
-                  <h1 className='temp-main'>
-                    {temperatures.value}
-                    {simbol}
-                  </h1>
-                  <h4 className='detail'>{`${temperatures.min + simbol} / ${temperatures.max + simbol}`}</h4>
-                </div>
+          <div className='container weather'>
+            <div className='weather-header'>
+              <h2 className='weather-name'>
+                {`${name}, ${country}`} <Icon className='fav-icon' onClick={onClick} />
+              </h2>
+              <hr className='separator' />
+              <div className='weather-temperature'>
+                <h1 className='temp-main'>
+                  {temperatures.value}
+                  {simbol}
+                </h1>
+                <h4 className='weather-detail'>{`${temperatures.min + simbol} / ${temperatures.max + simbol}`}</h4>
               </div>
-              <div className='weather-details'>
-                <div className='details-container'>
-                  <h4 className='detail'>Precipitation: 60%</h4>
-                  <h4 className='detail'>Humidity: {main.humidity}%</h4>
-                  <h4 className='detail'>Wind: {main.wind}mph</h4>
-                </div>
-                {weatherTemp ? weatherTemp === 'hot' ? <WbSunny className='rotate-circle' /> : <Cloud /> : null}
-              </div>
-              {device === 'mobile' && <CustomButton title='Clear' onClick={onClear} />}
             </div>
+            <div className='weather-details'>
+              <div className='details-container'>
+                <h4 className='weather-detail'>Precipitation: 60%</h4>
+                <h4 className='weather-detail'>Humidity: {main.humidity}%</h4>
+                <h4 className='weather-detail'>Wind: {main.wind}mph</h4>
+              </div>
+              {weatherTemp ? weatherTemp === 'hot' ? <WbSunny className='rotate-circle sun-icon' /> : <Cloud /> : null}
+            </div>
+            {device === 'mobile' && <CustomButton title='Clear' onClick={onClear} />}
           </div>
         </div>
       </Fade>

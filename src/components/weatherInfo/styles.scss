@@ -19,9 +19,9 @@
     }
   }
 
-  .title {
+  .weather-name {
     font-size: 2.8rem;
-    font-weight: 100;
+    font-weight: 400;
     margin-bottom: 5px;
     display: flex;
     align-items: center;
@@ -53,7 +53,7 @@
     }
   }
 
-  .detail {
+  .weather-detail {
     font-size: 2rem;
     font-weight: 400;
     letter-spacing: 1px;
@@ -73,5 +73,12 @@
   }
   @include desktop {
     font-size: 4.5rem !important;
+  }
+}
+
+.sun-icon {
+  @include ipad {
+    width: 80px !important;
+    height: 80px !important;
   }
 }
