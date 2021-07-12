@@ -2,9 +2,10 @@
 
 .sidebar {
   background: #373b46;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
+
   @include ipad {
-    flex-basis: 300px;
+    flex-basis: 250px;
   }
   @include desktop {
     flex-basis: 450px;

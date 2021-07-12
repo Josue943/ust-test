@@ -1,5 +1,5 @@
 import { memo, useCallback, useState } from 'react';
-import { Collapse, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Collapse, Fade, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { Delete, ExpandLess, ExpandMore, Favorite, Public } from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
 
@@ -12,7 +12,7 @@ type Props = {
 };
 
 const FavoriteList: React.FC<Props> = ({ locations }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   const Icon = open ? ExpandLess : ExpandMore;
@@ -22,7 +22,7 @@ const FavoriteList: React.FC<Props> = ({ locations }) => {
   const toggleOpen = useCallback(() => setOpen(!open), [open]);
 
   return (
-    <div className='bg-dark'>
+    <Fade in={true} timeout={1500}>
       <div className='container'>
         <div className='favorite-list'>
           <ListItem button onClick={toggleOpen}>
@@ -35,11 +35,11 @@ const FavoriteList: React.FC<Props> = ({ locations }) => {
           <Collapse in={open} timeout='auto' unmountOnExit>
             <List component='div' disablePadding>
               {locations.map(({ name, country, id }) => (
-                <ListItem button key={id} onClick={() => onFetch(id)}>
+                <ListItem button key={id}>
                   <ListItemIcon>
                     <Public />
                   </ListItemIcon>
-                  <ListItemText primary={`${name}, ${country}`} />
+                  <ListItemText primary={`${name}, ${country}`} onClick={() => onFetch(id)} />
                   <ListItemIcon className='icon-container'>
                     <Delete className='pointer' onClick={() => onDelete(id)} />
                   </ListItemIcon>
@@ -49,7 +49,7 @@ const FavoriteList: React.FC<Props> = ({ locations }) => {
           </Collapse>
         </div>
       </div>
-    </div>
+    </Fade>
   );
 };
 

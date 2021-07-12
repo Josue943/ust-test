@@ -12,7 +12,6 @@ type Props = {
 
 const CustomSelect: React.FC<Props> = ({ onChange, options, value }) => {
   const { icon, optionStyle, menuPaper, selectEmpty } = useStyles();
-
   return (
     <Select
       variant='outlined'

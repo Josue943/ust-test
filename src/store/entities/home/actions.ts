@@ -7,9 +7,7 @@ import { Action } from './actionTypes';
 import { Dispatch } from 'redux';
 import { types } from './types';
 
-const apiKey = 'b6c2a3c345c13094b41d98ee60d82c75';
-
-const url = (id: number): string => `weather?id=${id}&units=metric&APPID=${apiKey}`;
+const url = (id: number): string => `weather?id=${id}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`;
 
 export const changeLocation = (payload: unknown) => ({
   type: types.SET_LOCATION,

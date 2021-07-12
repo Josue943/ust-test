@@ -4,13 +4,13 @@ import { persistReducer } from 'redux-persist';
 
 import home from '../entities/home';
 
-//persist data only from favorites
 const rootPersistConfig = {
   key: 'root',
   storage: storage,
   blacklist: ['home'],
 };
 
+//persist data only from favorites
 const persistConfig = {
   key: 'home',
   storage,

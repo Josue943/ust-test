@@ -13,7 +13,7 @@ const Main: React.FC = () => {
   }));
 
   return (
-    <div className='main'>
+    <div className='main bg-dark'>
       {weather ? (
         <WeatherInfo {...weather} favorite={favorite} counter={favoriteLocations.length} />
       ) : (

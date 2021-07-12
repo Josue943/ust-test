@@ -1,5 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { Cloud, StarOutline, Star, WbSunny } from '@material-ui/icons';
+import { Fade } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
 import './styles.scss';
@@ -15,13 +16,14 @@ interface IProps extends Weather {
 }
 
 const WeatherInfo: React.FC<IProps> = ({ counter, country, id, favorite, name, main, temperatures }) => {
-  const [dialog, setDialog] = useState(false);
+  const [dialog, setDialog] = useState<boolean>(false);
   const dispatch = useDispatch();
   const device = useDevice();
 
   const Icon = favorite ? Star : StarOutline;
   const simbol: string = '\xB0C';
 
+  //cannot add a new favorite if you already have 3
   const onClick = () => {
     if (favorite) return dispatch(removeFavorite(id));
     if (counter > 2) toggleDialog();
@@ -34,34 +36,36 @@ const WeatherInfo: React.FC<IProps> = ({ counter, country, id, favorite, name, m
 
   return (
     <>
-      <div className={`bg-dark gg ${weatherTemp}`}>
-        <div className='container'>
-          <div className='weather'>
-            <div className='weather-header'>
-              <h2 className='title'>
-                {`${name}, ${country}`} <Icon className='fav-icon' onClick={onClick} />
-              </h2>
-              <hr className='separator' />
-              <div className='weather-temperature'>
-                <h1>
-                  {temperatures.value}
-                  {simbol}
-                </h1>
-                <h4 className='detail'>{`${temperatures.min + simbol} / ${temperatures.max + simbol}`}</h4>
+      <Fade in={true} timeout={1800}>
+        <div className={`w-100 ${weatherTemp}`}>
+          <div className='container'>
+            <div className='weather'>
+              <div className='weather-header'>
+                <h2 className='title'>
+                  {`${name}, ${country}`} <Icon className='fav-icon' onClick={onClick} />
+                </h2>
+                <hr className='separator' />
+                <div className='weather-temperature'>
+                  <h1 className='temp-main'>
+                    {temperatures.value}
+                    {simbol}
+                  </h1>
+                  <h4 className='detail'>{`${temperatures.min + simbol} / ${temperatures.max + simbol}`}</h4>
+                </div>
               </div>
-            </div>
-            <div className='weather-details'>
-              <div className='details-container'>
-                <h4 className='detail'>Precipitation: 60%</h4>
-                <h4 className='detail'>Humidity: {main.humidity}%</h4>
-                <h4 className='detail'>Wind: {main.wind}mph</h4>
+              <div className='weather-details'>
+                <div className='details-container'>
+                  <h4 className='detail'>Precipitation: 60%</h4>
+                  <h4 className='detail'>Humidity: {main.humidity}%</h4>
+                  <h4 className='detail'>Wind: {main.wind}mph</h4>
+                </div>
+                {weatherTemp ? weatherTemp === 'hot' ? <WbSunny className='rotate-circle' /> : <Cloud /> : null}
               </div>
-              {weatherTemp ? weatherTemp === 'hot' ? <WbSunny className='rotate-circle' /> : <Cloud /> : null}
+              {device === 'mobile' && <CustomButton title='Clear' onClick={onClear} />}
             </div>
-            {device === 'mobile' && <CustomButton title='Clear' onClick={onClear} />}
           </div>
         </div>
-      </div>
+      </Fade>
       <CustomDialog title={'Your list is full'} open={dialog} handleClose={toggleDialog} />
     </>
   );
