@@ -38,23 +38,15 @@ body {
   height: 100%;
 }
 
-.title {
-  font-size: 2.8rem;
-  font-weight: 100;
-  margin-bottom: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  @include desktop {
-    font-size: 4rem;
-    margin-bottom: 10px;
-  }
-}
-
 .separator {
   border-color: $main-green;
 }
 
 .pointer {
   cursor: pointer;
+}
+
+.bg-dark {
+  background: #1f222b;
+  width: 100%;
 }

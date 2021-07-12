@@ -1,14 +1,8 @@
+@import '../../sass/animations';
 @import '../../sass/variables';
 @import '../../sass/mixin';
 
 .main {
-  background: #1f222b;
   flex: 1;
   display: flex;
-}
-
-.loading {
-  height: 60px !important;
-  width: 60px !important;
-  color: $main-green !important;
 }

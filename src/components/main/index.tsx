@@ -8,15 +8,17 @@ import { RootState } from 'store/config/entities';
 const Main: React.FC = () => {
   const { favorite, favoriteLocations, weather } = useSelector(({ home }: RootState) => ({
     weather: home.weather,
-    favorite: !!home.favoriteLocations.find(fav => fav.id === home.weather?.id),
+    favorite: !!home.favoriteLocations.find(location => location.id === home.weather?.id),
     favoriteLocations: home.favoriteLocations,
   }));
 
   return (
     <div className='main'>
-      <div className='container'>
-        {weather ? <WeatherInfo {...weather} favorite={favorite} /> : <FavoritesList locations={favoriteLocations} />}
-      </div>
+      {weather ? (
+        <WeatherInfo {...weather} favorite={favorite} counter={favoriteLocations.length} />
+      ) : (
+        <FavoritesList locations={favoriteLocations} />
+      )}
     </div>
   );
 };
